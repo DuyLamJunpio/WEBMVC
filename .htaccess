@@ -1,0 +1,9 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{QUERY_STRING} !ignore=
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+
+<IfModule !mod_rewrite.c>
+    ErrorDocument 404 /notfound.html
+</IfModule>
